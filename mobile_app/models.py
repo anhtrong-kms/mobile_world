@@ -1,7 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
-
+import uuid
+from django.contrib.auth.forms import UserCreationForm
+from django.db.models.lookups import IntegerFieldFloatRounding
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
@@ -23,7 +25,7 @@ class Product(models.Model):
         return reverse("product_detail", kwargs={"pk": self.pk})  
 class ShippingAddress(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    #cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
     address = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
@@ -39,3 +41,11 @@ class Resgister(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
+class Login(User):
+    user = models.CharField( max_length=50)
+    password =models.CharField( max_length=50)
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+    #def get_absolute_url(self):
+        #return reversed('post_detail',kwargs={'pk':self.pk})
+    
