@@ -41,11 +41,3 @@ class Resgister(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
-# class Login(User):
-    user = models.CharField( max_length=50)
-    password =models.CharField( max_length=50)
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-    #def get_absolute_url(self):
-        #return reversed('post_detail',kwargs={'pk':self.pk})
-    
