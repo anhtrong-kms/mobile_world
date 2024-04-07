@@ -41,7 +41,7 @@ class Resgister(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
-class Login(User):
+# class Login(User):
     user = models.CharField( max_length=50)
     password =models.CharField( max_length=50)
     def save(self, *args, **kwargs):
