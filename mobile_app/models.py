@@ -4,11 +4,20 @@ from django.urls import reverse
 import uuid
 from django.contrib.auth.forms import UserCreationForm
 from django.db.models.lookups import IntegerFieldFloatRounding
+from decimal import Decimal
+
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     email = models.EmailField()
     phone = models.CharField(max_length=11)
+
+    def __str__(self):
+        return self.name
+
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
 
     def __str__(self):
         return self.name
@@ -28,12 +37,15 @@ class Product(models.Model):
         discount_amount = Decimal(self.price) * Decimal(self.discount) / Decimal(100)
         discounted_price = Decimal(self.price) - discount_amount
         return discounted_price
-    def sold_quatily_sp(self):
-        sold_qua = self.sold_quantity+1
-        return  sold_qua
-    def remain_quatily(self):
-        remain_qua = self.remaining_quantity-1
-        return remain_qua
+    def place_order(self, quantity):
+        if quantity <= self.remaining_quantity:
+            self.sold_quantity += quantity
+            self.remaining_quantity -= quantity
+            self.save()
+            return True
+        else:
+            return False
+        
     def __str__(self):
         return self.name
 
