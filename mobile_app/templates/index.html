@@ -7,11 +7,15 @@ Home
 
 {% block content %}
 <h1>Best seller</h1>
-{% for x in Product %} 
+{% for product in products %} 
     <div class="col-sm-4">
-        <img src="{{x.image}}" alt="{{x.name}}"> <br>
-        {{ x.name }} <br>
-        {{ x.price }}đ
+        <img src="{{ product.image.url }}" alt="{{ product.name }}"> <br>
+        {{ product.name }} <br>
+        {% if product.discount %}
+            <s>{{ product.price }}đ</s> {{ product.discounted_price }}đ
+        {% else %}
+            {{ product.price }}đ
+        {% endif %}
     </div>
 {% endfor %}
-{% endblock %}  
+{% endblock %}

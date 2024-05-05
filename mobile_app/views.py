@@ -5,7 +5,8 @@ from .models import Product
 
 # Create your views here.
 def Store(request):
-    return render(request, 'index.html', {})
+    products = Product.objects.all()
+    return render(request, 'index.html', {'products': products})
 
 def Login(request):
     return render(request, 'login.html', {})
