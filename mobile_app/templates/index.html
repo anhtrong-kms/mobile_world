@@ -6,5 +6,12 @@ Home
 {% endblock %}
 
 {% block content %}
-
+<h1>Best seller</h1>
+{% for x in Product %} 
+    <div class="col-sm-4">
+        <img src="{{x.image}}" alt="{{x.name}}"> <br>
+        {{ x.name }} <br>
+        {{ x.price }}đ
+    </div>
+{% endfor %}
 {% endblock %}  
