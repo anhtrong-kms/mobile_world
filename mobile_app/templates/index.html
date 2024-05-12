@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load humanize %}
 
 {% block title %}
 Home
@@ -7,15 +8,21 @@ Home
 
 {% block content %}
 <h1>Best seller</h1>
-{% for product in products %} 
-    <div class="col-sm-4">
-        <img src="{{ product.image.url }}" alt="{{ product.name }}"> <br>
-        {{ product.name }} <br>
-        {% if product.discount %}
-            <s>{{ product.price }}đ</s> {{ product.discounted_price }}đ
-        {% else %}
-            {{ product.price }}đ
-        {% endif %}
+<div class="container">
+    <div class="row gx-5 ">
+        {% for product in products %} 
+            <div class="col-sm-3 gy-2 mb-2">
+                <div class="p-3 border bg-light product">
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-img"> <br>
+                    <p class="product-name">{{ product.name|truncatechars:30 }}</p>
+                    {% if product.discount %}
+                        <s>{{ product.price.normalize|intcomma }}đ</s> {{ product.discounted_price.normalize|intcomma }}đ
+                    {% else %}
+                        {{ product.price }}đ
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
     </div>
-{% endfor %}
+</div>
 {% endblock %}

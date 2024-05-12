@@ -1,10 +1,23 @@
 {% extends "base.html" %}
 {% load static %}
+{% load humanize %}
 
 {% block title %}
-Product
+{% Product.name %}
 {% endblock %}
 
 {% block content %}
-
+<div class="row gx-5">
+    <div class="col-sm-5 gy-2 mb-2">
+        <img src="{% Product.image %}" alt="{% Product.name %}">
+    </div>
+    <div class="col-sm-7 gy-2 mb-2">
+        <h2>{% Product.name %}</h2>
+        {% if product.discount %}
+            <s>{{ product.price }}đ</s> {{ product.discounted_price }}đ
+        {% else %}
+            {{ product.price }}đ
+        {% endif %}
+    </div>
+</div>
 {% endblock %}
