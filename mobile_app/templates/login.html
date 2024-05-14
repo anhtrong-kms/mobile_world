@@ -1,66 +1,63 @@
-{% extends "base.html" %}
-{% load static %}
-
-{% block title %}
-Login
-{% endblock %}
-
-{% block content %}
-<div id="main-wrapper" class="container">
-    <div class="row justify-content-center">
-        <div class="col-xl-10">
-            <div class="card border-0">
-                <div class="card-body p-0">
-                    <div class="row no-gutters">
-                        <div class="col-lg-6">
-                            <div class="p-5">
-                                <div class="mb-5">
-                                    <h3 class="h4 font-weight-bold text-theme">Login</h3>
-                                </div>
-
-                                <h6 class="h5 mb-0">Welcome back!</h6>
-                                <p class="text-muted mt-2 mb-5">Enter your email address and password to access admin panel.</p>
-
-                                <form>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Username</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1">
-                                    </div>
-                                    <div class="form-group mb-5">
-                                        <label for="exampleInputPassword1">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1">
-                                    </div>
-                                    <button type="submit" class="btn btn-theme">Login</button>
-                                    <a href="#l" class="forgot-link float-right text-primary">Forgot password?</a>
-                                </form>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 d-none d-lg-inline-block">
-                            <div class="account-block rounded-right">
-                                <div class="overlay rounded-right"></div>
-                                <div class="account-testimonial">
-                                    <!-- <img src="{% static 'images/background.jpg' %}" alt="background"> -->
-                                    <!-- <h4 class="text-white mb-4">This  beautiful theme yours!</h4>
-                                    <p class="lead text-white">"Best investment i made for a long time. Can only recommend it for other users."</p>
-                                    <p>- Admin User</p> -->
-                                    <h1>Welcome back to Mobile World!</h1>
-                                    <img src="static/images/logo1.png" alt="Logo" style="height: 100pt;">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+    <title>Login</title>
+</head>
+<body> 
+    <div class="container" id="container"> 
+        <div class="form-container sign-up">
+            <form>
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
-                <!-- end card-body -->
-            </div>
-            <!-- end card -->
-
-            <!-- end row -->
-
+                <span>or use your email for registration</span>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <i class = "fa-solid fa-eye" id="show-pass">
+                <input type="password" placeholder="Password id="input-pass"">
+                <button class="btn">Sign Up</button>
+            </form>
         </div>
-        <!-- end col -->
+        <div class="form-container sign-in">
+            <form>
+                <h1>Sign In</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <a href="#">Forgot your password?</a>
+                <button class="btn">Sign In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of the site's features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to use all of the site's features</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- Row -->
-</div>
-{% endblock %}
+</body>
+</html>
