@@ -11,7 +11,7 @@
   <script src="{% static 'js/cart.js' %}"></script>
   <style>
     body{
-      background-color: gray;
+      background-color: whitesmoke;
     }
     .product-img{
       width: 170px;
@@ -31,23 +31,20 @@
     <!-- Header -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="container">
-        <a href="#" class="navbar-brand "><img src="static/images/logo1.png" alt="Logo" style="height: 100pt;"></a>
-
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#main-nav">
-          <span class="menu-icon-bar"></span>
-          <span class="menu-icon-bar"></span>
-          <span class="menu-icon-bar"></span>
-        </button>
+        <a href="#" class="navbar-brand "><img src="{% static 'images/logo1.png' %}" alt="Logo" style="height: 100pt;"></a>
 
         <div id="main-nav" class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
-            <li><a href="#" class="nav-item nav-link active">Home</a></li>
+            <li><a href="{% url 'Store' %}" class="nav-item nav-link active">Home</a></li>
             <li><a href="#" class="nav-item nav-link">Sản phẩm</a></li>
             <li><a href="#" class="nav-item nav-link">Liên hệ</a></li>
-            <li><a href="#" class="nav-item nav-link">Đăng nhập</a></li>/
-            <li><a href="#" class="nav-item nav-link">Đăng ký</a></li>
+            <li><a href="{% url 'Login' %}" class="nav-item nav-link">Đăng nhập</a></li>/
+            <li><a href="{% url 'Register' %}" class="nav-item nav-link">Đăng ký</a></li>
           </ul>
         </div>
+
+        <a href="#"><img src="{% static 'images/user.png' %}" alt="" style="height: 30pt;"></a>
+        <a href="{% url 'Cart' %}"><img src="{% static 'images/cart.png' %}" alt="" style="height: 30pt;"></a>
       </div>
     </nav>
     <!-- End Header -->
@@ -61,7 +58,7 @@
           <div class="footer-border-bottom pb-6 mb-5">
             <div class="row">
               <div class="col-lg-4 col-xl-3">
-                <img src="static/images/logo2.png" alt="" style="height: 200pt;">
+                <img src="{% static 'images/logo2.png' %}" alt="" style="height: 200pt;">
               </div>
               <div class="col-lg-4 col-xl-6">
                 <form class="d-flex flex-row mb-2 p-1 bg-white input-group">
@@ -89,16 +86,16 @@
               </div>
               <div class="nav footer-socila-icon">
                 <a href="#">
-                  <img src="static/images/facebook.png" alt="">
+                  <img src="{% static 'images/facebook.png' %}" alt="">
                 </a>
                 <a href="#">
-                  <img src="static/images/instagram.png" alt="">
+                  <img src="{% static 'images/instagram.png' %}" alt="">
                 </a>
                 <a href="#">
-                  <img src="static/images/github.png" alt="">
+                  <img src="{% static 'images/github.png' %}" alt="">
                 </a>
                 <a href="#">
-                  <img src="static/images/pinterest.png" alt="">
+                  <img src="{% static 'images/pinterest.png' %}" alt="">
                 </a>
               </div>
             </div>

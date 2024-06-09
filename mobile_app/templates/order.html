@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+Cart
+{% endblock %}
+
+{% block content %}
+<h1>Đơn hàng</h1>
+<div class="container" style="background-color: white;">
+    <div class="row">
+        <div class="col-sm-3">
+            <img src="#" alt="">
+        </div>
+        <div class="col-sm-6">
+            <p>Tên đơn hàng</p>
+            <small>Phân loại: loại</small>
+            <p>x(số lượng)</p>
+        </div>
+        <div class="col-sm-3">
+            <s>giá cũ</s>&nbsp; <p>giá đã giảm</p>
+        </div>
+    </div>
+    <hr>
+    <p> Thành tiền <span >tổng tiền </span> </p>
+    <hr>
+</div>
+{% endblock %}
