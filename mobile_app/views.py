@@ -64,3 +64,7 @@ def Checkout(request):
 
 def Order(request):
     return render(request, 'order.html', {})
+
+def Phone(request):
+    products = Product.objects.all()
+    return render(request, 'phone.html', {'products': products})

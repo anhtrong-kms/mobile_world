@@ -10,9 +10,6 @@ registerBtn.addEventListener('click', () =>{
 loginBtn.addEventListener('click', () =>{ 
   container.classList.remove("active");
 }); 
-goback.addEventListener('click', () =>{
-  container.classList.remove("home");
-});
 
 // const btnShowPass = document.querySelector("#show-pass");
 // const inputPass = document.querySelector("#input-pass");
