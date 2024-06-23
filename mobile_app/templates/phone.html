@@ -9,7 +9,7 @@
 {% block content %}
 <h2>Điện thoại</h2>
 {% for product in Product %}
-    {% if "Điện Thoại Di Động" in product.category %}
+    {% if product.category == "Điện Thoại Di Động" %}
         <div class="col-sm-4">
             <a href="{% url 'product' product.id %}">
                 <img src="{{product.image}}" alt="{{product.name}}"> <br>
