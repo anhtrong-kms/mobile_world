@@ -67,13 +67,18 @@ Cart
                         <td>   </td>
                         <td>   </td>
                         <td>
-                        <button type="button" class="btn btn-default">
-                            <span class="glyphicon glyphicon-shopping-cart"></span> Tiếp tục mua
-                        </button></td>
+                            <a href="{% url 'Store' %}">
+                                <button type="button" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-shopping-cart"></span> Tiếp tục mua
+                                </button>
+                            </a>
+                        </td>
                         <td>
-                        <button type="button" class="btn btn-success">
-                            Thanh toán <span class="glyphicon glyphicon-play"></span>
-                        </button></td>
+                        <a href="{% url 'Checkout' %}">
+                            <button type="button" class="btn btn-success">
+                                Thanh toán <span class="glyphicon glyphicon-play"></span>
+                            </button></td>
+                        </a>
                     </tr>
                 </tbody>
             </table>

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+Điện thoại
+{% endblock %}
+
+{% block content %}
+<h2>Điện thoại</h2>
+{% for product in Product %}
+    {% if "Điện Thoại Di Động" in product.category %}
+        <div class="col-sm-4">
+            <a href="{% url 'product' product.id %}">
+                <img src="{{product.image}}" alt="{{product.name}}"> <br>
+                <p class="product-name">{{ product.name|truncatechars:30 }}</p>
+                {% if product.discount %}
+                    <s>{{ product.price.normalize|intcomma }}đ</s> {{ product.discounted_price.normalize|intcomma }}đ
+                {% else %}
+                    {{ product.price|intcomma }}đ
+                {% endif %}
+            </a>
+        </div>
+    {% endif %}
+{% endfor %}
+
+{% endblock %}
