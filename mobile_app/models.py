@@ -68,3 +68,13 @@ class Resgister(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
+class PrdouctGallery(models.Model):
+    product = models.ForeignKey(Product, default=None, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='store/products', max_length=255)
+
+    class Meta:
+        verbose_name = 'Product gallery'
+        verbose_name_plural = 'Product gallery'
+
+    def __str__(self):
+        return self.product.product_name

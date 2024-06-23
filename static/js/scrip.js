@@ -1,7 +1,7 @@
 const container = document.getElementById('container');
 const registerBtn = document.getElementById('register');
 const loginBtn = document.getElementById('login');  
-
+const goback = document.getElementById('go_back');
 // click=> add|remove   
 
 registerBtn.addEventListener('click', () =>{ 
@@ -10,6 +10,9 @@ registerBtn.addEventListener('click', () =>{
 loginBtn.addEventListener('click', () =>{ 
   container.classList.remove("active");
 }); 
+goback.addEventListener('click', () =>{
+  container.classList.remove("home");
+});
 
 // const btnShowPass = document.querySelector("#show-pass");
 // const inputPass = document.querySelector("#input-pass");
