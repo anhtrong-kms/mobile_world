@@ -53,7 +53,7 @@ def login(request):
 
 def product_detail(request, id):
     product = get_object_or_404(Product, id=id)
-    product_gallery = PrdouctGallery.objects.filter(product_id=single_product.id)
+    # product_gallery = PrdouctGallery.objects.filter(product_id=single_product.id)
     return render(request, 'product.html', {'product': product})
 
 def Cart(request):
