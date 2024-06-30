@@ -7,21 +7,27 @@
 {% endblock %}
 
 {% block content %}
-<h2>Điện thoại</h2>
-{% for product in Product %}
-    {% if product.category == "Điện Thoại Di Động" %}
-        <div class="col-sm-4">
-            <a href="{% url 'product' product.id %}">
-                <img src="{{product.image}}" alt="{{product.name}}"> <br>
-                <p class="product-name">{{ product.name|truncatechars:30 }}</p>
-                {% if product.discount %}
-                    <s>{{ product.price.normalize|intcomma }}đ</s> {{ product.discounted_price.normalize|intcomma }}đ
-                {% else %}
-                    {{ product.price|intcomma }}đ
-                {% endif %}
-            </a>
-        </div>
-    {% endif %}
-{% endfor %}
+<h1>Điện thoại</h1>
+<div class="container">
+    <div class="row gx-5 ">
+        {% for product in products %} 
+            {% if product.category == "Điện Thoại Di Động" %}
+                <div class="col-sm-3 gy-2 mb-2">
+                    <div class="p-3 border bg-light product">
+                        <a href="{% url 'product' product.id %}">
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-img"> <br>
+                            <p class="product-name">{{ product.name|truncatechars:30 }}</p>
+                            {% if product.discount %}
+                                <s>{{ product.price.normalize|intcomma }}đ</s> {{ product.discounted_price.normalize|intcomma }}đ
+                            {% else %}
+                                {{ product.price|intcomma }}đ
+                            {% endif %}
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock %}
